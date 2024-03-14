@@ -66,12 +66,11 @@ def create_workout_plan(request):
         if form.is_valid():
             try:
                 workout_plan = form.save(commit=False)
-                user = User.objects.get(username=request.user.username)  # Get the User instance
-                workout_plan.user = user  # Assign the User instance to the user field
+                user = User.objects.get(username=request.user.username)  
+                workout_plan.user = user 
                 workout_plan.save()
                 return JsonResponse({'success': 'Workout plan created successfully'})
             except Exception as e:
-                # Log the exception for debugging
                 print(f"Error creating workout plan: {e}")
                 return JsonResponse({'error': 'An error occurred while creating the workout plan'}, status=500)
         else:
