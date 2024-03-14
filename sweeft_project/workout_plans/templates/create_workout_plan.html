@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Workout Plan</title>
+  </head>
+  <body>
+    <h1>Create Workout Plan</h1>
+    <form method="post" id="create-workout-form">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Create Workout Plan</button>
+    </form>
+  </body>
+</html>
